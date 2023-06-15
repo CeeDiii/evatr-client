@@ -1,4 +1,4 @@
-data = {'200': 'Die angefragte USt-IdNr. ist gültig.',
+status_codes = {'200': 'Die angefragte USt-IdNr. ist gültig.',
  '201': 'Die angefragte USt-IdNr. ist ungültig.',
  '202': 'Die angefragte USt-IdNr. ist ungültig. Sie ist nicht in der '
         'Unternehmerdatei des betreffenden\n'

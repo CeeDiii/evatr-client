@@ -6,7 +6,7 @@ import requests
 
 from bs4 import BeautifulSoup
 
-def extract_error_codes(html):
+def extract_status_codes(html):
     error_codes = {}
     soup = BeautifulSoup(html, 'html.parser')
     rows = soup.select('td.fett')
@@ -20,9 +20,9 @@ def extract_error_codes(html):
 res = requests.get('https://evatr.bff-online.de/eVatR/xmlrpc/codes')
 if res.ok:
     raw_html = res.text
-    codes = extract_error_codes(raw_html)
+    codes = extract_status_codes(raw_html)
     unescaped_codes = {key: html.unescape(value) for key, value in codes.items()}
-    with open('./error-code.py', 'w', encoding='utf-8') as f:
+    with open('./status_codes.py', 'w', encoding='utf-8') as f:
         formatted_codes = pprint.pformat(unescaped_codes)
-        f.write('data = ' + formatted_codes)
-    print('Successfully added error codes to error-code.py')
+        f.write('status_codes = ' + formatted_codes)
+    print('Successfully added error codes to status_codes.py')

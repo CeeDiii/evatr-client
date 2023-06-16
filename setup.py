@@ -17,6 +17,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
     keywords=['python', 'uid', 'vat', 'uid prüfung', 'vat validation', 'evatr'],
+    python_requires=">=3.10",
     install_requires=[
           'requests',
           'urllib3',
@@ -25,7 +26,7 @@ setup(
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: >3.10",
+        "Programming Language :: Python :: 3",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",

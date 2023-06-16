@@ -4,7 +4,7 @@ from dataclasses import asdict
 from urllib.parse import urlencode
 from xml.etree.ElementTree import fromstring
 
-from util import ISimpleParams, IQualifiedParams, ISimpleResult, IQualifiedResult, get_error_description, get_result_description
+from .util import ISimpleParams, IQualifiedParams, ISimpleResult, IQualifiedResult, get_error_description, get_result_description
 
 class EvatrClient:
     def retrieve_xml(self, params: ISimpleParams | IQualifiedParams, qualified: bool = False) -> str:

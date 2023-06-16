@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 
-from status_codes import status_codes
+from .status_codes import status_codes
 
 class ResultType(Enum):
     MATCH = 'A',

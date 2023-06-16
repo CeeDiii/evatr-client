@@ -1,2 +1,2 @@
-from evatr_client import EvatrClient
-from util import ISimpleParams, ISimpleResult, IQualifiedParams, IQualifiedResult
+from evatr_client.client import EvatrClient
+from evatr_client.util import ISimpleParams, ISimpleResult, IQualifiedParams, IQualifiedResult

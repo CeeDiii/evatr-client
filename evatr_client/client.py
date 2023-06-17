@@ -90,7 +90,7 @@ class EvatrClient:
             ISimpleResult | IQualifiedResult: The parsed result object.
         
         '''
-        response = self._(raw_xml)
+        response = self._map_xml_response_data(raw_xml)
 
         error_code = int(response['ErrorCode'])
         result_name = response['Erg_Name']
@@ -146,7 +146,7 @@ class EvatrClient:
         
         '''
         xml = self._retrieve_xml(params, qualified=False)
-        return self._(xml, qualified=False, include_raw_xml=params.include_raw_xml)
+        return self._parse_xml_response(xml, qualified=False, include_raw_xml=params.include_raw_xml)
 
 
     def check_qualified(self, params: IQualifiedParams):
@@ -164,4 +164,4 @@ class EvatrClient:
         
         '''
         xml = self._retrieve_xml(params, qualified=True)
-        return self._(xml, qualified=True, include_raw_xml=params.include_raw_xml)
+        return self._parse_xml_response(xml, qualified=True, include_raw_xml=params.include_raw_xml)

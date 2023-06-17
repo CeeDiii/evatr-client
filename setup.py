@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 DESCRIPTION = 'A client for: https://evatr.bff-online.de/eVatR/'
 LONG_DESCRIPTION = 'A client to validate EU-VAT numbers with the official German tool that can be found here: https://evatr.bff-online.de/eVatR/'
 
@@ -12,7 +12,7 @@ setup(
     description=DESCRIPTION,
     license='MIT',
     url='https://github.com/CeeDiii/evatr-client',
-    download_url='https://github.com/CeeDiii/evatr-client/archive/refs/tags/v0.1.0.tar.gz',
+    download_url='https://github.com/CeeDiii/evatr-client/archive/refs/tags/v0.1.1.tar.gz',
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),

@@ -54,6 +54,13 @@ You can scrape the error codes with the script `scripts/scrape_status_codes.py`.
 $ python scripts/scrape_status_codes.py
 ```
 
+## Testing 
+To get the actual test results, execute the following command from the root project directory:
+
+```shell
+$ python -m unittest tests/test_client.py
+```
+
 ## Contributing 
 Feel free to open issues and pull requests in this repo.
 

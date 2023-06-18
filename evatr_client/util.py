@@ -123,7 +123,7 @@ class IQualifiedResult(ISimpleResult):
     result_zip_description: Optional[str] = None
     result_street_description: Optional[str] = None
 
-def _get_result_description(result_type):
+def get_result_description(result_type):
     '''
     Get the description for a specific result type.
 
@@ -145,7 +145,7 @@ def _get_result_description(result_type):
     else:
         return None
     
-def _get_error_description(error_code: int):
+def get_error_description(error_code: int):
     '''
     Get the description for a specific error code.
 
@@ -157,5 +157,5 @@ def _get_error_description(error_code: int):
 
     '''
     if error_code in status_codes:
-       return status_codes[error_code]
+       return status_codes[str(error_code)]
     return 'Description not found for the given code.'

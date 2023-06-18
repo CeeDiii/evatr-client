@@ -103,7 +103,7 @@ class EvatrClient:
             date=response['Datum'],
             time=response['Uhrzeit'],
             error_code=response['ErrorCode'],
-            error_description=(error_code),
+            error_description=get_error_description(error_code),
             own_vat_number=response['UstId_1'],
             validated_vat_number=response['UstId_2'],
             valid_from=response['Gueltig_ab'],
@@ -122,10 +122,10 @@ class EvatrClient:
                 result_city=result_city,
                 result_zip=result_zip,
                 result_street=result_street,
-                result_name_description=(result_name),
-                result_city_description=(result_city),
-                result_zip_description=(result_zip),
-                result_street_description=(result_street)
+                result_name_description=get_result_description(result_name),
+                result_city_description=get_result_description(result_city),
+                result_zip_description=get_result_description(result_zip),
+                result_street_description=get_result_description(result_street)
             )
 
         return result

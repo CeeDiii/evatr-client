@@ -156,6 +156,6 @@ def get_error_description(error_code: int):
         str: The description of the error code.
 
     '''
-    if error_code in status_codes:
+    if str(error_code) in status_codes:
        return status_codes[str(error_code)]
     return 'Description not found for the given code.'

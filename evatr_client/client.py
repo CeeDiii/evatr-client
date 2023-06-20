@@ -1,7 +1,7 @@
 import requests
 
 from dataclasses import asdict
-from typing import Dict
+from typing import Dict, Union
 from urllib.parse import urlencode
 from xml.etree.ElementTree import fromstring
 
@@ -17,7 +17,7 @@ class EvatrClient:
     https://evatr.bff-online.de/eVatR/xmlrpc/
     
     '''
-    def _retrieve_xml(self, params: ISimpleParams | IQualifiedParams, qualified: bool = False) -> str:
+    def _retrieve_xml(self, params: Union[ISimpleParams, IQualifiedParams], qualified: bool = False) -> str:
         '''
         Retrieves XML data from the eVatR service based on the provided parameters.
 
@@ -47,7 +47,9 @@ class EvatrClient:
             query['Strasse'] = params.street
 
         requestUrl = f'https://evatr.bff-online.de/evatrRPC?{urlencode(query)}'
-        res = requests.get(requestUrl)
+
+        # explicitly throw exception if it times out
+        res = requests.get(requestUrl, timeout=15)
 
         if res.ok:
             return res.text
@@ -77,7 +79,7 @@ class EvatrClient:
         response = dict(zip(label, values))
         return response
 
-    def _parse_xml_response(self, raw_xml: str, qualified: bool = False, include_raw_xml: bool = False) -> ISimpleResult | IQualifiedResult:   
+    def _parse_xml_response(self, raw_xml: str, qualified: bool = False, include_raw_xml: bool = False) -> Union[ISimpleResult, IQualifiedResult]:   
         '''
         Parses the XML response into a simple or qualified result object.
 

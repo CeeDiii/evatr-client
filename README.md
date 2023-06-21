@@ -16,18 +16,18 @@ from evatr_client import EvatrClient, ISimpleParams, IQualifiedParams
 client = EvatrClient()
 
 simpleParams: ISimpleParams = ISimpleParams(include_raw_xml=False,
-                                                own_vat_number='<your own VAT number>', 
-                                                validate_vat_number='<the VAT number to validate>')
+                                                own_vat_number='DE129273398', 
+                                                validate_vat_number='CZ00177041')
 
 client.check_simple(simpleParams)
 
 qualifiedParams: IQualifiedParams = IQualifiedParams(include_raw_xml=False,
-                                                own_vat_number='<your own VAT number>', 
-                                                validate_vat_number='<the VAT number to validate>', 
-                                                company_name='<SomeCompany Srl>', 
-                                                city='Milano', 
-                                                zip='20123', 
-                                                street='Via Italia 22')
+                                                own_vat_number='DE129273398', 
+                                                validate_vat_number='CZ00177041', 
+                                                company_name='SKODA AUTO a.s.', 
+                                                city='Mlada Boleslav', 
+                                                zip='293 01', 
+                                                street='tr. Vaclava Klementa 869')
 
 client.check_qualified(qualifiedParams)
 ```

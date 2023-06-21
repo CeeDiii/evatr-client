@@ -226,7 +226,7 @@ class TestClient(unittest.TestCase):
         actual = self.client._retrieve_xml(params, qualified=False)
 
         self.assertEqual(actual, expected)
-        mock_get.assert_called_once_with(f'https://evatr.bff-online.de/evatrRPC?UstId_1={self.own_vat_number}&UstId_2={self.validate_vat_number}')
+        mock_get.assert_called_once_with(f'https://evatr.bff-online.de/evatrRPC?UstId_1={self.own_vat_number}&UstId_2={self.validate_vat_number}', timeout=15)
 
     @patch('requests.get')
     def test_retrieve_xml_simple_should_fail(self, mock_get):
@@ -242,7 +242,7 @@ class TestClient(unittest.TestCase):
         with self.assertRaises(Exception):
             self.client._retrieve_xml(params, qualified=False)
 
-        mock_get.assert_called_once_with(f'https://evatr.bff-online.de/evatrRPC?UstId_1={self.own_vat_number}&UstId_2={self.validate_vat_number}')
+        mock_get.assert_called_once_with(f'https://evatr.bff-online.de/evatrRPC?UstId_1={self.own_vat_number}&UstId_2={self.validate_vat_number}', timeout=15)
 
     @patch('requests.get')
     def test_retrieve_xml_params_empty_should_fail(self, mock_get):
@@ -481,7 +481,7 @@ class TestClient(unittest.TestCase):
         actual = self.client._retrieve_xml(params, qualified=True)
 
         self.assertEqual(actual, expected)
-        mock_get.assert_called_once_with(f'https://evatr.bff-online.de/evatrRPC?{urlencode(query)}')
+        mock_get.assert_called_once_with(f'https://evatr.bff-online.de/evatrRPC?{urlencode(query)}', timeout=15)
 
     def test_map_xml_response_data_should_return_response_dict(self):
         qualifiedResponse: str = '''

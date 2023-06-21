@@ -45,20 +45,20 @@ $ pip install evatr-client
 Install dependencies from the `requirements.txt` file:
 
 ```shell
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 You can scrape the error codes with the script `scripts/scrape_status_codes.py`. The script has to be executed from the project root directory:
 
 ```shell
-$ python scripts/scrape_status_codes.py
+python scripts/scrape_status_codes.py
 ```
 
 ## Testing 
 To get the actual test results, execute the following command from the root project directory:
 
 ```shell
-$ python -m unittest tests/test_client.py
+python -m unittest
 ```
 
 ## Contributing 

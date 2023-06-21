@@ -1,14 +1,15 @@
-from enum import Enum
+from collections import defaultdict
 
 from .status_codes import status_codes
 
-class ResultType(Enum):
-    MATCH = 'A',
-    NO_MATCH = 'B',
-    NOT_QUERIED = 'C',
-    NOT_RETURNED = 'D',
+RESULT_TYPE = defaultdict(lambda: None, {
+    'A': 'stimmt überein',
+    'B': 'stimmt nicht überein',
+    'C': 'nicht angefragt',
+    'D': 'vom EU-Mitgliedsstaat nicht mitgeteilt'
+})
 
-def get_result_description(result_type):
+def get_result_description(result_type: str) -> str:
     '''
     Get the description for a specific result type.
 
@@ -19,18 +20,9 @@ def get_result_description(result_type):
         str: The description of the result type.
 
     '''
-    if result_type == ResultType.MATCH:
-        return 'stimmt überein'
-    elif result_type == ResultType.NO_MATCH:
-        return 'stimmt nicht überein'
-    elif result_type == ResultType.NOT_QUERIED:
-        return 'nicht angefragt'
-    elif result_type == ResultType.NOT_RETURNED:
-        return 'vom EU-Mitgliedsstaat nicht mitgeteilt'
-    else:
-        return None
+    return RESULT_TYPE[result_type]
     
-def get_error_description(error_code: int):
+def get_error_description(error_code: int) -> str:
     '''
     Get the description for a specific error code.
 

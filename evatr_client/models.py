@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import Optional
-from .util import ResultType
+from .util import RESULT_TYPE
 
 @dataclass
 class ISimpleParams:
@@ -106,10 +106,10 @@ class IQualifiedResult(ISimpleResult):
     city: Optional[str] = None
     zip: Optional[str] = None
     street: Optional[str] = None
-    result_name: Optional[ResultType] = ResultType.NOT_QUERIED
-    result_city: Optional[ResultType] = ResultType.NOT_QUERIED
-    result_zip: Optional[ResultType] = ResultType.NOT_QUERIED
-    result_street: Optional[ResultType] = ResultType.NOT_QUERIED
+    result_name: Optional[str] = None
+    result_city: Optional[str] = None
+    result_zip: Optional[str] = None
+    result_street: Optional[str] = None
     result_name_description: Optional[str] = None
     result_city_description: Optional[str] = None
     result_zip_description: Optional[str] = None

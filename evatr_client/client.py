@@ -5,7 +5,9 @@ from typing import Dict, Union
 from urllib.parse import urlencode
 from xml.etree.ElementTree import fromstring
 
-from .util import ISimpleParams, IQualifiedParams, ISimpleResult, IQualifiedResult, get_error_description, get_result_description
+from .models import ISimpleParams, IQualifiedParams, ISimpleResult, IQualifiedResult
+from .util import get_error_description, get_result_description
+
 
 class EvatrClient:
     '''

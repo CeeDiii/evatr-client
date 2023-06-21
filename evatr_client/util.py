@@ -158,4 +158,4 @@ def get_error_description(error_code: int):
     '''
     if str(error_code) in status_codes:
        return status_codes[str(error_code)]
-    return 'Description not found for the given code.'
+    return 'Beschreibung für diesen Code wurde nicht gefunden.'

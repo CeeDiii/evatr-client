@@ -1,10 +1,13 @@
 from dataclasses import dataclass
 from typing import Optional
+
+from dataclass_wizard import JSONWizard
 from .util import RESULT_TYPE
 
+
 @dataclass
-class ISimpleParams:
-    '''
+class ISimpleParams(JSONWizard):
+    """
     Parameters for a simple VAT number check.
 
     Args:
@@ -12,7 +15,8 @@ class ISimpleParams:
         own_vat_number (str): The VAT number used for validation.
         validate_vat_number (str): The VAT number to validate.
 
-    '''
+    """
+
     include_raw_xml: bool
     own_vat_number: str
     validate_vat_number: str
@@ -20,7 +24,7 @@ class ISimpleParams:
 
 @dataclass
 class IQualifiedParams(ISimpleParams):
-    '''
+    """
     Parameters for a qualified VAT number check.
 
     Args:
@@ -31,8 +35,9 @@ class IQualifiedParams(ISimpleParams):
         city (str): The city of the company to validate.
         zip (Optional[str]): The zip code of the company to validate (optional).
         street (Optional[str]): The street of the company to validate (optional).
-    
-    '''
+
+    """
+
     company_name: str
     city: str
     zip: Optional[str] = None
@@ -40,8 +45,8 @@ class IQualifiedParams(ISimpleParams):
 
 
 @dataclass
-class ISimpleResult:
-    '''
+class ISimpleResult(JSONWizard):
+    """
     Result of a simple VAT number check.
 
     Args:
@@ -56,7 +61,8 @@ class ISimpleResult:
         valid_until (Optional[str]): The end date of the VAT number validity (optional).
         raw_xml (Optional[str]): The raw XML response (optional).
 
-    '''
+    """
+
     valid: bool
     date: str
     time: str
@@ -71,7 +77,7 @@ class ISimpleResult:
 
 @dataclass
 class IQualifiedResult(ISimpleResult):
-    '''
+    """
     Result of a qualified VAT number check.
 
     Args:
@@ -101,7 +107,8 @@ class IQualifiedResult(ISimpleResult):
         result_zip_description (Optional[str]): The description of the zip code validation result (optional).
         result_street_description (Optional[str]): The description of the street address validation result (optional).
 
-    '''
+    """
+
     company_name: Optional[str] = None
     city: Optional[str] = None
     zip: Optional[str] = None

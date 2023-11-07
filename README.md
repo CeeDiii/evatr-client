@@ -84,7 +84,8 @@ Example result:
     "resultNameDescription": "stimmt überein",
     "resultCityDescription": "stimmt überein", 
     "resultZipDescription": "stimmt überein", 
-    "resultStreetDescription": "stimmt überein"}
+    "resultStreetDescription": "stimmt überein"
+}
 
 ```
 
